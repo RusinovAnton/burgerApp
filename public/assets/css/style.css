@@ -1,0 +1,12 @@
+body {
+    font-family: monospace;
+    color: #29203a;
+}
+
+.isLoading {
+    display: none;
+}
+
+.status-loading .isLoading {
+    display: block;
+}
