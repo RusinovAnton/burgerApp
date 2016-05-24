@@ -4,7 +4,7 @@ var BurgerShow = require('../BurgerShow');
 var fetchStatus = require('../../utils/fetchStatus');
 var fetchjson = require('../../utils/fetchjson');
 
-module.exports = React.createClass({
+export defaultReact.createClass({
     getInitialState: function () {
         return {
             isLoading: false,

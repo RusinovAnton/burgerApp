@@ -1,3 +1,3 @@
-module.exports = function(response) {
+export default function(response) {
     return response.json()
 };

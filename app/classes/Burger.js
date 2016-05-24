@@ -1,53 +1,56 @@
-var _forEach = require('lodash').forEach;
+import { forEach as _forEach }  from 'lodash';
 
-function Burger(size, stuff, top) {
+class Burger {
+    constructor(menu, size, stuff, top) {
+        this.menu = menu
+        this.components = {
+            size: size || null,
+            stuff: stuff || null,
+            top: top || null
+        }
+    }
 
-  this.components = {
-    size: null,
-    stuff: null,
-    top: null
-  };
+    set size(size) {
+        this.components.size = size;
+    }
 
-  !!size ? this.setSize(size) : false;
-  !!stuff ? this.setStuff(stuff) : false;
-  !!top ? this.setTop(top) : false;
+    set stuff(stuff) {
+        this.components.stuff = stuff;
+    }
+
+    set top(top) {
+        this.components.top = top;
+    }
+
+    get size() {
+        return this.components.size;
+    }
+
+    get stuff() {
+        return this.components.stuff;
+    }
+
+    get top() {
+        return this.components.top;
+    }
+
+    get cost() {
+        return this.sumComponents('cost');
+    }
+
+    get calories() {
+        return this.sumComponents('cal');
+    }
+
+    sumComponents(key) {
+        let value = 0;
+
+        _forEach(this.components, function (value, key) {
+            value += this.menu[el][key];
+        }.bind(this));
+
+        return value;
+    }
 }
 
-Burger.prototype.setItem = function (item, type) {
-  if (!item || item.indexOf(type.toUpperCase()) < 0 || !this.menu[item]) {
-    return false;
-  }
-  this.components[type] = item;
-};
-
-Burger.prototype.sumComponents = function (key) {
-  var value = 0;
-
-  _forEach(this.components, function (el) {
-    value += this.menu[el][key];
-  }.bind(this));
-
-  return value;
-};
-
-Burger.prototype.setSize = function (size) {
-  this.setItem(size, 'size');
-};
-
-Burger.prototype.setStuff = function (stuff) {
-  this.setItem(stuff, 'stuff');
-};
-
-Burger.prototype.setTop = function (top) {
-  this.setItem(top, 'top');
-};
-
-Burger.prototype.getPrice = function () {
-  return this.sumComponents('cost');
-};
-
-Burger.prototype.getCalories = function () {
-  return this.sumComponents('cal');
-};
-
-module.exports = Burger;
+export default Burger;

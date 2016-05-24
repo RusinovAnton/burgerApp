@@ -57,17 +57,11 @@
 	
 	var _Burger2 = _interopRequireDefault(_Burger);
 	
-	var _Menu = __webpack_require__(5);
+	var _setMenu = __webpack_require__(5);
 	
-	var _Menu2 = _interopRequireDefault(_Menu);
-	
+	var _setMenu2 = _interopRequireDefault(_setMenu);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var myMenu = new _Menu2.default();
-	
-	var myBurger = new _Burger2.default();
-	
-	console.log(myBurger);
 
 /***/ },
 /* 2 */
@@ -75,59 +69,79 @@
 
 	'use strict';
 	
-	var _forEach = __webpack_require__(3).forEach;
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
 	
-	function Burger(size, stuff, top) {
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
-	  this.components = {
-	    size: null,
-	    stuff: null,
-	    top: null
-	  };
+	var _lodash = __webpack_require__(3);
 	
-	  !!size ? this.setSize(size) : false;
-	  !!stuff ? this.setStuff(stuff) : false;
-	  !!top ? this.setTop(top) : false;
-	}
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
-	Burger.prototype.setItem = function (item, type) {
-	  if (!item || item.indexOf(type.toUpperCase()) < 0 || !this.menu[item]) {
-	    return false;
-	  }
-	  this.components[type] = item;
-	};
+	var Burger = function () {
+	    function Burger(menu, size, stuff, top) {
+	        _classCallCheck(this, Burger);
 	
-	Burger.prototype.sumComponents = function (key) {
-	  var value = 0;
+	        this.menu = menu;
+	        this.components = {
+	            size: size || null,
+	            stuff: stuff || null,
+	            top: top || null
+	        };
+	    }
 	
-	  _forEach(this.components, function (el) {
-	    value += this.menu[el][key];
-	  }.bind(this));
+	    _createClass(Burger, [{
+	        key: 'sumComponents',
+	        value: function sumComponents(key) {
+	            var value = 0;
 	
-	  return value;
-	};
+	            (0, _lodash.forEach)(this.components, function (value, key) {
+	                value += this.menu[el][key];
+	            }.bind(this));
 	
-	Burger.prototype.setSize = function (size) {
-	  this.setItem(size, 'size');
-	};
+	            return value;
+	        }
+	    }, {
+	        key: 'size',
+	        set: function set(size) {
+	            this.components.size = size;
+	        },
+	        get: function get() {
+	            return this.components.size;
+	        }
+	    }, {
+	        key: 'stuff',
+	        set: function set(stuff) {
+	            this.components.stuff = stuff;
+	        },
+	        get: function get() {
+	            return this.components.stuff;
+	        }
+	    }, {
+	        key: 'top',
+	        set: function set(top) {
+	            this.components.top = top;
+	        },
+	        get: function get() {
+	            return this.components.top;
+	        }
+	    }, {
+	        key: 'cost',
+	        get: function get() {
+	            return this.sumComponents('cost');
+	        }
+	    }, {
+	        key: 'calories',
+	        get: function get() {
+	            return this.sumComponents('cal');
+	        }
+	    }]);
 	
-	Burger.prototype.setStuff = function (stuff) {
-	  this.setItem(stuff, 'stuff');
-	};
+	    return Burger;
+	}();
 	
-	Burger.prototype.setTop = function (top) {
-	  this.setItem(top, 'top');
-	};
-	
-	Burger.prototype.getPrice = function () {
-	  return this.sumComponents('cost');
-	};
-	
-	Burger.prototype.getCalories = function () {
-	  return this.sumComponents('cal');
-	};
-	
-	module.exports = Burger;
+	exports.default = Burger;
 
 /***/ },
 /* 3 */
@@ -16562,46 +16576,38 @@
 
 	'use strict';
 	
-	var Size = __webpack_require__(6);
-	var Stuff = __webpack_require__(9);
-	var Top = __webpack_require__(10);
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
 	
-	function Menu() {
-	    this.items = {};
-	}
+	var _Menu = __webpack_require__(6);
 	
-	function addItem(type) {
-	    var instance;
-	    switch (toLowercase(type)) {
-	        case 'size':
-	            instance = Size;
-	            break;
-	        case 'stuff':
-	            instance = Stuff;
-	            break;
-	        case 'Top':
-	            instance = Top;
-	    }
-	    return function (name, item) {
-	        this.items[toUppercase(type) + '_' + toUppercase(name)] = item;
-	    };
-	}
+	var _Menu2 = _interopRequireDefault(_Menu);
 	
-	Menu.prototype.addSize = addItem('size');
+	var _Components = __webpack_require__(7);
 	
-	Menu.prototype.addStuff = addItem('stuff');
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	Menu.prototype.addTop = addItem('top');
+	var menu = new _Menu2.default();
 	
-	Menu.prototype.getItem = function (key) {
-	    if (this.items[key]) {
-	        return this.items[key];
-	    } else {
-	        throw Error('There is no such item in the menu, sorry');
-	    }
-	};
+	menu.addSize('small', new _Components.Size(15, 25));
+	menu.addSize('medium', new _Components.Size(20, 35));
+	menu.addSize('large', new _Components.Size(30, 45));
+	menu.addSize('xlarge', new _Components.Size(45, 60));
 	
-	module.exports = Menu;
+	menu.addStuff('poultry', new _Components.Stuff(20, 30));
+	menu.addStuff('pork', new _Components.Stuff(25, 40));
+	menu.addStuff('beef', new _Components.Stuff(35, 45));
+	menu.addStuff('cheese', new _Components.Stuff(35, 45, 'ADD_STUFF'));
+	menu.addStuff('beef', new _Components.Stuff(35, 45, 'ADD_STUFF'));
+	menu.addStuff('beef', new _Components.Stuff(35, 45, 'ADD_STUFF'));
+	
+	menu.addTop('mayo', new _Components.Top(5, 10));
+	menu.addTop('sauce', new _Components.Top(5, 0));
+	
+	console.log(menu);
+	
+	exports.default = menu;
 
 /***/ },
 /* 6 */
@@ -16609,77 +16615,172 @@
 
 	'use strict';
 	
-	var BurgerComponent = __webpack_require__(7);
-	var extendClass = __webpack_require__(8);
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
 	
-	function Size(cost, cal) {
-	    BurgerComponent.apply(this, [cost, cal]);
-	}
-	extendClass(Size, BurgerComponent);
-	Size.prototype.type = 'SIZE';
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
-	module.exports = Size;
+	var _Components = __webpack_require__(7);
+	
+	var _lodash = __webpack_require__(3);
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var Menu = function () {
+	    function Menu() {
+	        _classCallCheck(this, Menu);
+	
+	        this.items = {
+	            size: {},
+	            stuff: {},
+	            top: {}
+	        };
+	    }
+	
+	    _createClass(Menu, [{
+	        key: 'addSize',
+	        value: function addSize(name, item) {
+	            if (typeof name === 'string') {
+	                if (item instanceof _Components.Size) {
+	                    this.items.size[name.toLowerCase()] = item;
+	                } else {
+	                    throw new Error('The item you want to assign is not instance of Size class');
+	                }
+	            } else {
+	                throw new Error('name must be a string');
+	            }
+	        }
+	    }, {
+	        key: 'addStuff',
+	        value: function addStuff(name, item) {
+	            if (typeof name === 'string') {
+	                if (item instanceof _Components.Stuff) {
+	                    this.items.stuff[name.toLowerCase()] = item;
+	                } else {
+	                    throw new Error('The item you want to assign is not instance of Stuff class');
+	                }
+	            } else {
+	                throw new Error('name must be a string');
+	            }
+	        }
+	    }, {
+	        key: 'addTop',
+	        value: function addTop(name, item) {
+	            if (typeof name === 'string') {
+	                if (item instanceof _Components.Top) {
+	                    this.items.top[name.toLowerCase()] = item;
+	                } else {
+	                    throw new Error('The item you want to assign is not instance of Top class');
+	                }
+	            } else {
+	                throw new Error('name must be a string');
+	            }
+	        }
+	    }, {
+	        key: 'menuList',
+	        get: function get() {
+	            return this.items;
+	        }
+	    }]);
+	
+	    return Menu;
+	}();
+	
+	exports.default = Menu;
 
 /***/ },
 /* 7 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
-	function BurgerComponent(cost, cal) {
-	    this.cost = cost;
-	    this.cal = cal;
-	}
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.Top = exports.Stuff = exports.Size = undefined;
 	
-	module.exports = BurgerComponent;
+	var _BurgerComponent4 = __webpack_require__(8);
+	
+	var _BurgerComponent5 = _interopRequireDefault(_BurgerComponent4);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Size = function (_BurgerComponent) {
+	    _inherits(Size, _BurgerComponent);
+	
+	    function Size(cost, cal) {
+	        _classCallCheck(this, Size);
+	
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Size).call(this, cost, cal));
+	
+	        _this.type = 'SIZE';
+	        return _this;
+	    }
+	
+	    return Size;
+	}(_BurgerComponent5.default);
+	
+	var Stuff = function (_BurgerComponent2) {
+	    _inherits(Stuff, _BurgerComponent2);
+	
+	    function Stuff(cost, cal, type) {
+	        _classCallCheck(this, Stuff);
+	
+	        var _this2 = _possibleConstructorReturn(this, Object.getPrototypeOf(Stuff).call(this, cost, cal));
+	
+	        _this2.type = type || 'STUFF';
+	        return _this2;
+	    }
+	
+	    return Stuff;
+	}(_BurgerComponent5.default);
+	
+	var Top = function (_BurgerComponent3) {
+	    _inherits(Top, _BurgerComponent3);
+	
+	    function Top(cost, cal) {
+	        _classCallCheck(this, Top);
+	
+	        var _this3 = _possibleConstructorReturn(this, Object.getPrototypeOf(Top).call(this, cost, cal));
+	
+	        _this3.type = 'TOP';
+	        return _this3;
+	    }
+	
+	    return Top;
+	}(_BurgerComponent5.default);
+	
+	exports.Size = Size;
+	exports.Stuff = Stuff;
+	exports.Top = Top;
 
 /***/ },
 /* 8 */
 /***/ function(module, exports) {
 
-	"use strict";
+	'use strict';
 	
-	module.exports = function (child, parent) {
-	    // inherit parent
-	    child.prototype = Object.create(parent.prototype);
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
 	
-	    // correct the constructor pointer because it points to parent
-	    child.prototype.constructor = child;
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var BurgerComponent = function BurgerComponent(cost, cal) {
+	    _classCallCheck(this, BurgerComponent);
+	
+	    this.cost = !!parseFloat(cost) ? cost : new Error('Cost must be a number');
+	    this.cal = typeof cal === 'number' ? cal : new Error('Cal must be a number');
 	};
-
-/***/ },
-/* 9 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
 	
-	var BurgerComponent = __webpack_require__(7);
-	var extendClass = __webpack_require__(8);
-	
-	function Stuff(cost, cal) {
-	    BurgerComponent.apply(this, [cost, cal]);
-	}
-	extendClass(Stuff, BurgerComponent);
-	Stuff.prototype.type = 'STUFF';
-	
-	module.exports = Stuff;
-
-/***/ },
-/* 10 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var BurgerComponent = __webpack_require__(7);
-	var extendClass = __webpack_require__(8);
-	
-	function Topping(cost, cal) {
-	    BurgerComponent.apply(this, [cost, cal]);
-	}
-	extendClass(Topping, BurgerComponent);
-	Topping.prototype.type = 'TOPPING';
-	
-	module.exports = Topping;
+	exports.default = BurgerComponent;
 
 /***/ }
 /******/ ]);

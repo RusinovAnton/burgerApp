@@ -1,7 +1,7 @@
 var React = require('react');
 var BurgerItem = require('./BurgerItem');
 
-module.exports = React.createClass({
+export defaultReact.createClass({
     render: function(){
         var burgerList = this.props.burgerList ?
             this.props.burgerList.map(function(burger, key){

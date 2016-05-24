@@ -1,40 +1,55 @@
-const Size = require('./components/Size');
-const Stuff = require('./components/Stuff');
-const Top = require('./components/Topping');
+import { Size, Stuff, Top } from './components/Components';
+import { extend as _extend } from 'lodash';
 
-function Menu() {
-    this.items = {};
+class Menu {
+    constructor() {
+        this.items = {
+            size:   {},
+            stuff:  {},
+            top:    {}
+        }
+    }
+
+    addSize(name, item) {
+        if (typeof name === 'string') {
+            if (item instanceof Size) {
+                this.items.size[name.toLowerCase()] = item;
+            } else {
+                throw new Error('The item you want to assign is not instance of Size class');
+            }
+        } else {
+            throw new Error('name must be a string');
+        }
+    }
+
+    addStuff(name, item) {
+        if (typeof name === 'string') {
+            if (item instanceof Stuff) {
+                this.items.stuff[name.toLowerCase()] = item;
+            } else {
+                throw new Error('The item you want to assign is not instance of Stuff class');
+            }
+        } else {
+            throw new Error('name must be a string');
+        }
+    }
+
+    addTop(name, item) {
+        if (typeof name === 'string') {
+            if (item instanceof Top) {
+                this.items.top[name.toLowerCase()] = item;
+            } else {
+                throw new Error('The item you want to assign is not instance of Top class');
+            }
+        } else {
+            throw new Error('name must be a string');
+        }
+    }
+
+    get menuList() {
+        return this.items;
+    }
 }
 
-function addItem(type) {
-    var instance;
-    switch(toLowercase(type)) {
-        case 'size':
-            instance = Size;
-            break;
-        case 'stuff':
-            instance = Stuff;
-            break;
-        case 'Top':
-            instance = Top;
-    }
-    return function(name, item){
-        this.items[toUppercase(type) + '_' + toUppercase(name)] = item;
-    }
-}
 
-Menu.prototype.addSize = addItem('size');
-
-Menu.prototype.addStuff = addItem('stuff');
-
-Menu.prototype.addTop = addItem('top');
-
-Menu.prototype.getItem = function(key) {
-    if (this.items[key]) {
-        return this.items[key];
-    } else {
-        throw Error('There is no such item in the menu, sorry');
-    }
-};
-
-module.exports = Menu;
+export default Menu;

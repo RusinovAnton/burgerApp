@@ -1,7 +1,7 @@
-module.exports = function(response) {
+export default function(response) {
     if (response.status >= 200 && response.status < 300) {
         return Promise.resolve(response)
     } else {
         return Promise.reject(new Error(response.statusText))
     }
-};
+}
