@@ -3,7 +3,9 @@
 const gulp = require("gulp"),
     plumber = require('gulp-plumber'),
     uglify = require("gulp-uglify"),
-    webpack = require("webpack-stream");
+    webpack = require("webpack-stream"),
+    mocha = require('gulp-mocha'),
+    babel = require('babel-register');
 
 const config = {
     app: {
@@ -12,6 +14,9 @@ const config = {
     },
     webpack: {
         config: './webpack.config.js'
+    },
+    test: {
+        src: './tests/**/*.test.js'
     }
 };
 
@@ -27,9 +32,19 @@ gulp.task('app', function () {
         .pipe(gulp.dest(config.app.dest));
 });
 
+gulp.task('test', function () {
+    return gulp.src(config.test.src, {read: false})
+        .pipe(mocha({
+            compilers: {
+                js: babel
+            },
+            reporter: 'nyan'
+        }));
+});
+
 gulp.task('watch', ['app'], function () {
     gulp.watch('./app/**/*.js', ['app']);
-})
+});
 
 gulp.task('default', ['app'], function () {
 
