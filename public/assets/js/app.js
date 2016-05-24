@@ -16605,8 +16605,6 @@
 	menu.addTop('mayo', new _Components.Top(5, 10));
 	menu.addTop('sauce', new _Components.Top(5, 0));
 	
-	console.log(menu);
-	
 	exports.default = menu;
 
 /***/ },
@@ -16763,7 +16761,7 @@
 
 /***/ },
 /* 8 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -16771,13 +16769,26 @@
 	    value: true
 	});
 	
+	var _lodash = __webpack_require__(3);
+	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function validate(item) {
+	    if (typeof item === 'number' && item >= 0) {
+	        return item;
+	    } else {
+	        throw new Error(item + ' is not valid value. Must be a positive Number');
+	    }
+	}
 	
 	var BurgerComponent = function BurgerComponent(cost, cal) {
 	    _classCallCheck(this, BurgerComponent);
 	
-	    this.cost = !!parseFloat(cost) ? cost : new Error('Cost must be a number');
-	    this.cal = typeof cal === 'number' ? cal : new Error('Cal must be a number');
+	    cost = validate(cost);
+	    cal = validate(cal);
+	
+	    this.cost = cost;
+	    this.cal = cal;
 	};
 	
 	exports.default = BurgerComponent;

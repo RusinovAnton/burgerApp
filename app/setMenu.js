@@ -18,6 +18,4 @@ menu.addStuff(  'beef',     new Stuff(  35, 45, 'ADD_STUFF'));
 menu.addTop(    'mayo',     new Top(    5,  10));
 menu.addTop(    'sauce',    new Top(    5,  0));
 
-console.log(menu);
-
 export default menu;
