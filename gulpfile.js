@@ -2,7 +2,6 @@
 
 const gulp = require("gulp");
 const plumber = require('gulp-plumber');
-const uglify = require("gulp-uglify");
 const webpack = require("webpack-stream");
 const mocha = require('gulp-mocha');
 const babel = require('babel-register');
@@ -17,6 +16,12 @@ const config = {
     },
     test: {
         src: './tests/**/*.test.js'
+    },
+    mocha: {
+        compilers: {
+            js: babel
+        },
+        reporter: 'nyan'
     }
 };
 
@@ -24,18 +29,12 @@ gulp.task('app', ['test'], function () {
     return gulp.src(config.app.src)
         .pipe(plumber())
         .pipe(webpack(require(config.webpack.config)))
-        //.pipe(uglify())
         .pipe(gulp.dest(config.app.dest));
 });
 
-gulp.task('test', function () {
+gulp.task('test', function(){
     return gulp.src(config.test.src, {read: false})
-        .pipe(mocha({
-            compilers: {
-                js: babel
-            },
-            reporter: 'nyan'
-        }));
+        .pipe(mocha(config.mocha));
 });
 
 gulp.task('watch', ['test', 'app'], function () {

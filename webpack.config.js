@@ -1,3 +1,5 @@
+var webpack = require('webpack');
+
 module.exports = {
     devtool: 'source-map',
     entry: [
@@ -11,5 +13,12 @@ module.exports = {
         loaders: [
             { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
         ]
-    }
+    },
+    plugins: [
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            }
+        })
+    ]
 };
