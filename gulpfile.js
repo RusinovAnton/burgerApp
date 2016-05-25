@@ -24,7 +24,7 @@ gulp.task('test', function () {
     console.log('No tests yet');
 });
 
-gulp.task('app', function () {
+gulp.task('app', ['test'], function () {
     return gulp.src(config.app.src)
         .pipe(plumber())
         .pipe(webpack(require(config.webpack.config)))
@@ -42,7 +42,7 @@ gulp.task('test', function () {
         }));
 });
 
-gulp.task('watch', ['app'], function () {
+gulp.task('watch', ['test', 'app'], function () {
     gulp.watch('./app/**/*.js', ['app']);
 });
 

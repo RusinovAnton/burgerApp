@@ -19,56 +19,32 @@ describe('Menu', function () {
     });
     describe('addSize()', function () {
         it('should validate arguments', function () {
-            try {
-                mockMenu.addSize();
-                mockMenu.addSize(1024, new Size(13, 37));
-                mockMenu.addSize('test', {cost: 123, cal: 12})
-            } catch (err) {
-                should.exist(err);
-            }
+                try { mockMenu.addSize(); } catch(e) {should.exist(e)}
+                try { mockMenu.addSize(1024, new Size(13, 37)); } catch(e) {should.exist(e)}
+                try { mockMenu.addSize('test', {cost: 123, cal: 12}) } catch(e) {should.exist(e)}
         });
         it('is ok if item object\'s name is a string an instance of Size', function () {
-            try {
-                mockMenu.addSize('test', new Size(20, 30));
-            } catch (err) {
-                should.not.exist(err);
-            }
+            try { mockMenu.addSize('test', new Size(20, 30)); } catch(e) {should.not.exist(e)}
         });
     });
     describe('addStuff()', function () {
         it('should validate arguments', function () {
-            try {
-                mockMenu.addStuff();
-                mockMenu.addStuff(1024, new Stuff(13, 37));
-                mockMenu.addStuff('test', {cost: 123, cal: 12})
-            } catch (err) {
-                should.exist(err);
-            }
+                try {mockMenu.addStuff(); } catch(e) {should.exist(e)}
+                try {mockMenu.addStuff(1024, new Stuff(13, 37)); } catch(e) {should.exist(e)}
+                try {mockMenu.addStuff('test', {cost: 123, cal: 12}) } catch(e) {should.exist(e)}
         });
         it('is ok if item object\'s name is a string an instance of Stuff', function () {
-            try {
-                mockMenu.addStuff('test', new Stuff(20, 30));
-            } catch (err) {
-                should.not.exist(err);
-            }
+            try { mockMenu.addStuff('test', new Stuff(20, 30)); } catch (e) { should.not.exist(e); }
         });
     });
     describe('addTop()', function () {
         it('should validate arguments', function () {
-            try {
-                mockMenu.addTop();
-                mockMenu.addTop(1024, new Top(13, 37));
-                mockMenu.addTop('test', {cost: 123, cal: 12})
-            } catch (err) {
-                should.exist(err);
-            }
+                try { mockMenu.addTop(); }  catch(e) {should.exist(e)}
+                try { mockMenu.addTop(1024, new Top(13, 37)); }  catch(e) {should.exist(e)}
+                try { mockMenu.addTop('test', {cost: 123, cal: 12}) }  catch(e) {should.exist(e)}
         });
         it('is ok if item object\'s name is a string an instance of Top', function () {
-            try {
-                mockMenu.addTop('test', new Top(20, 30));
-            } catch (err) {
-                should.not.exist(err);
-            }
+            try { mockMenu.addTop('test', new Top(20, 30)); } catch (e) { should.not.exist(e); }
         });
     });
     describe('menuList() getter', function () {
@@ -81,6 +57,7 @@ describe('Menu', function () {
         it('must has size, stuff, top items with cost: 20 and cal: 30', function () {
             assert.typeOf(mockMenu.menuList, 'object');
         });
-    })
+    });
+
 });
 

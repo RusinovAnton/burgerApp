@@ -10,7 +10,7 @@ class Size extends BurgerComponent {
 class Stuff extends BurgerComponent {
     constructor(cost, cal, type) {
         super(cost, cal)
-        this.type = type || 'STUFF'
+        this.type = type ? type.toUpperCase() + '_STUFF' : 'STUFF'
     }
 }
 

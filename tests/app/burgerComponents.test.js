@@ -36,6 +36,10 @@ describe('Stuff', function () {
     it('should take two positive numbers as arguments', function(){
         new Stuff(20,20);
         new Stuff(20,20.32);
+    });
+    it('should take third optional parameter - type to change type of stuff', function(){
+        var testStuff = new Stuff(20,20,'ADD');
+        assert.equal(testStuff.type, 'ADD_STUFF');
     })
 });
 describe('Top', function () {
