@@ -21,6 +21,49 @@ describe('Burger', function(){
                 assert.equal(mockBurger.components.size.cost, 1337);
                 assert.equal(mockBurger.components.size.cal, 2337);
             });
+            it('setter size must only allow Size objects', function(){
+                expect(()=>{mockBurger.size = {a: 'foo', b: 'baz'};}).to.throw(Error);
+            })
+        })
+        describe('stuff', function(){
+            it('is instance of Array', function(){
+                expect(mockBurger).to.have.deep.property('components.stuff').that.an.instanceof(Array);
+            });
+            it('should have getter', function(){
+                expect(mockBurger.stuff).to.be.instanceof(Array);
+            });
+            it('should have setter', function(){
+                let mockBurger = new Burger(new Size(5,15), new Stuff(1337,2337), new Top(20,25));
+                mockBurger.stuff = new Stuff(105,125);
+                expect(mockBurger.components.stuff).to.be.instanceof(Array);
+                assert.equal(mockBurger.components.stuff[0].cost, 1337);
+                assert.equal(mockBurger.components.stuff[0].cal, 2337);
+                assert.equal(mockBurger.components.stuff[1].cost, 105);
+                assert.equal(mockBurger.components.stuff[1].cal, 125);
+            });
+            it('setter stuff must only allow Stuff objects', function(){
+                expect(()=>{mockBurger.stuff = {a: 'foo', b: 'baz'};}).to.throw(Error);
+            })
+        })
+        describe('top', function(){
+            it('is instance of Array', function(){
+                expect(mockBurger).to.have.deep.property('components.top').that.an.instanceof(Array);
+            });
+            it('should have getter', function(){
+                expect(mockBurger.top).to.be.instanceof(Array);
+            });
+            it('should have setter', function(){
+                let mockBurger = new Burger(new Size(5,15), new Stuff(1337,2337), new Top(20,25));
+                mockBurger.top = new Top(105,125);
+                expect(mockBurger.components.top).to.be.instanceof(Array);
+                assert.equal(mockBurger.components.top[0].cost, 20);
+                assert.equal(mockBurger.components.top[0].cal, 25);
+                assert.equal(mockBurger.components.top[1].cost, 105);
+                assert.equal(mockBurger.components.top[1].cal, 125);
+            });
+            it('setter top must only allow Top objects', function(){
+                expect(()=>{mockBurger.top = {a: 'foo', b: 'baz'};}).to.throw(Error);
+            })
         })
     })
 });
