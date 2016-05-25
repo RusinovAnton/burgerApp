@@ -1,11 +1,11 @@
 'use strict';
 
-const gulp = require("gulp"),
-    plumber = require('gulp-plumber'),
-    uglify = require("gulp-uglify"),
-    webpack = require("webpack-stream"),
-    mocha = require('gulp-mocha'),
-    babel = require('babel-register');
+const gulp = require("gulp");
+const plumber = require('gulp-plumber');
+const uglify = require("gulp-uglify");
+const webpack = require("webpack-stream");
+const mocha = require('gulp-mocha');
+const babel = require('babel-register');
 
 const config = {
     app: {
@@ -19,10 +19,6 @@ const config = {
         src: './tests/**/*.test.js'
     }
 };
-
-gulp.task('test', function () {
-    console.log('No tests yet');
-});
 
 gulp.task('app', ['test'], function () {
     return gulp.src(config.app.src)
