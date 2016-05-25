@@ -58,6 +58,5 @@ describe('Menu', function () {
             assert.typeOf(mockMenu.menuList, 'object');
         });
     });
-
 });
 
