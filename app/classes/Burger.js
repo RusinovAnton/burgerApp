@@ -1,55 +1,22 @@
 import { forEach as _forEach }  from 'lodash';
+import { Size, Stuff, Top } from '../../app/classes/components/Components';
+import { component as validateComponent } from './utils/validate';
 
 class Burger {
-    constructor(menu, size, stuff, top) {
-        this.menu = menu
+    constructor(size, stuff, top) {
         this.components = {
             size: size || null,
-            stuff: stuff || null,
-            top: top || null
+            stuff: stuff || [],
+            top: top || []
         }
     }
 
     set size(size) {
-        this.components.size = size;
-    }
-
-    set stuff(stuff) {
-        this.components.stuff = stuff;
-    }
-
-    set top(top) {
-        this.components.top = top;
+        if (validateComponent(size, Size)) this.components.size = size;
     }
 
     get size() {
         return this.components.size;
-    }
-
-    get stuff() {
-        return this.components.stuff;
-    }
-
-    get top() {
-        return this.components.top;
-    }
-
-    get cost() {
-        return this.sumComponents('cost');
-    }
-
-    get calories() {
-        return this.sumComponents('cal');
-    }
-
-    sumComponents(key) {
-        let value = 0;
-
-        _forEach(this.components, function (value, key) {
-            value += this.menu[el][key];
-        }.bind(this));
-
-        return value;
     }
 }
 
