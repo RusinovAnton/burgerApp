@@ -9,10 +9,7 @@ const _forEach = require('lodash').forEach;
 function readMenuList() {
     return new Promise(function(resolve, reject){
         try {
-            var menuList = JSON.stringify(fs.readFileSync('./server/fixtures/menulist.json', 'utf8', function(err,data){
-                return data;
-            }));
-            resolve(menuList);
+            resolve(fs.readFileSync('./server/fixtures/menulist.json', 'utf8'));
         } catch (e) {
             reject(e);
         }

@@ -1,6 +1,6 @@
 var React = require('react');
 
-export defaultReact.createClass({
+export default React.createClass({
    render: function(){
        return (
          <li>

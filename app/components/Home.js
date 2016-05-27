@@ -1,7 +1,7 @@
 var React = require('react');
 var Link = require('react-router').Link;
 
-export defaultReact.createClass({
+export default React.createClass({
     render: function(){
         return (
             <div>

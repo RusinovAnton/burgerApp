@@ -16,11 +16,17 @@ class Menu {
     }
 
     addStuff(name, item) {
-        if (menuItemName(name) && menuItem(item, Stuff)) this.items.size[name.toLowerCase()] = item;
+        if (menuItemName(name) && menuItem(item, Stuff)) this.items.stuff[name.toLowerCase()] = item;
     }
 
     addTop(name, item) {
-        if (menuItemName(name) && menuItem(item, Top)) this.items.size[name.toLowerCase()] = item;
+        if (menuItemName(name) && menuItem(item, Top)) this.items.top[name.toLowerCase()] = item;
+    }
+
+    removeItem(type, name) {
+        name = name.toLowerCase();
+        if (typeof this.items[type][name] !== 'undefined') delete this.items[type][name];
+        else { throw new Error('There is not such item in the menu object');}
     }
 
     get menuList() {

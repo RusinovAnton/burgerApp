@@ -25,6 +25,13 @@ const config = {
     }
 };
 
+gulp.task('app:notest', function () {
+    return gulp.src(config.app.src)
+        .pipe(plumber())
+        .pipe(webpack(require(config.webpack.config)))
+        .pipe(gulp.dest(config.app.dest));
+});
+
 gulp.task('app', ['test'], function () {
     return gulp.src(config.app.src)
         .pipe(plumber())
