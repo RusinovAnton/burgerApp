@@ -1,42 +1,24 @@
 'use strict';
 
 const $ = {};
+const fs = require('fs');
 const mongoose = require('mongoose');
 const burgerSchema = mongoose.model('burger');
 const _forEach = require('lodash').forEach;
-const burgerList = [
-    {
-        cost: 250,
-        cal: 23,
-        components: {
-            size: 'XL',
-            stuff: 'cheese',
-            top: 'mayo'
-        }
-    },
-    {
-        cost: 350,
-        cal: 33,
-        components: {
-            size: 'XL',
-            stuff: 'cheese',
-            top: 'mayo'
-        }
-    }
-];
-const stringify = function (obj) {
-    return new Promise(function (resolve, reject) {
-        var response;
+
+function readMenuList() {
+    return new Promise(function(resolve, reject){
         try {
-            setTimeout(function () {
-                response = JSON.stringify(obj);
-                resolve(response);
-            }, 3000);
-        } catch (err) {
-            reject(err);
+            var menuList = JSON.stringify(fs.readFileSync('./server/fixtures/menulist.json', 'utf8', function(err,data){
+                return data;
+            }));
+            resolve(menuList);
+        } catch (e) {
+            reject(e);
         }
     });
-};
+}
+
 /**
  * @Route /api/burgerList
  * @method GET
@@ -108,6 +90,19 @@ $.postBurger = function (req, res) {
             log.error('Internal error(%d): %s', res.statusCode, err.message);
         }
     });
+};
+
+$.getMenuList = (req, res) => {
+    readMenuList()
+        .then((menuList)=>{
+            res.send(menuList);
+        })
+        .catch((e)=>{console.log(e)});
+};
+
+$.setMenuList = (req, res) => {
+    console.log(req);
+    res.send(200);
 };
 
 module.exports = $;
