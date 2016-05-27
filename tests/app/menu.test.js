@@ -22,6 +22,7 @@ describe('Menu', function () {
         });
         it('is ok if item object\'s name is a string an instance of Size', function () {
             expect(()=>{mockMenu.addSize('test', new Size(20, 30));}).to.not.throw(Error);
+            expect(mockMenu.items.size.test).to.not.be.undefined;
         });
     });
     describe('addStuff()', function () {
@@ -32,6 +33,7 @@ describe('Menu', function () {
         });
         it('is ok if item object\'s name is a string an instance of Stuff', function () {
             expect(()=>{ mockMenu.addStuff('test', new Stuff(20, 30))}).to.not.throw(Error);
+            expect(mockMenu.items.stuff.test).to.not.be.undefined;
         });
     });
     describe('addTop()', function () {
@@ -42,6 +44,21 @@ describe('Menu', function () {
         });
         it('is ok if item object\'s name is a string an instance of Top', function () {
             expect(()=>{mockMenu.addTop('test', new Top(20, 30));}).to.not.throw(Error);
+            expect(mockMenu.items.top.test).to.not.be.undefined;
+        });
+    });
+    describe('removeItem(type, name)', function(){
+        it('should throw Error if there is no such item in the menu', function(){
+            let mockMenu = new Menu();
+            mockMenu.addSize('testSize', new Size(10,10));
+            expect(()=>{mockMenu.removeItem('size', 'testSizee')}).to.throw(Error);
+        });
+        it('should remove existing menu item', function(){
+            let mockMenu = new Menu();
+            mockMenu.addSize('testSize', new Size(10,10));
+            expect(mockMenu.items.size.testsize).to.not.be.undefined;
+            mockMenu.removeItem('size', 'testSize');
+            expect(mockMenu.items.size.testsize).to.be.undefined;
         });
     });
     describe('menuList() getter', function () {

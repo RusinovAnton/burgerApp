@@ -37,9 +37,7 @@ describe('Burger', function () {
             it('should have setter', function () {
                 let mockBurger = new Burger(new Size(5, 15), new Stuff(1337, 2337), new Top(20, 25));
                 mockBurger.stuff = new Stuff(105, 125);
-                console.log(mockBurger.stuff);
                 mockBurger.stuff = [new Stuff(125, 135), new Stuff(233, 322)];
-                console.log(mockBurger.stuff);
                 expect(mockBurger.components.stuff).to.be.instanceof(Array);
                 assert.equal(mockBurger.components.stuff[0].cost, 1337);
                 assert.equal(mockBurger.components.stuff[0].cal, 2337);
