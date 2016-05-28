@@ -1,17 +1,31 @@
 function name(name) {
     if (typeof name === 'string') {
         return true;
-    } else {
-        throw new Error('name must be a string');
     }
+    return false;
+}
+
+function number(number){
+    if(typeof number === 'number') {
+        return true
+    }
+    return false;
 }
 
 function component(item, parentClass) {
     if (item instanceof parentClass) {
         return true;
-    } else {
-        throw new Error('The item you want to assign is not instance of '+ parentClass +' class');
     }
+    return false;
 }
 
-export { name, component }
+function componentType(type){
+    //COMPONENT_TYPES
+    return [
+        'SIZE',
+        'STUFF',
+        'TOPP'
+    ].indexOf(type.toUpperCase()) >= 0;
+}
+
+export {  component, componentType, name, number}

@@ -1,5 +1,4 @@
 import { forEach as _forEach }  from 'lodash';
-import { Size, Stuff, Top } from '../../app/classes/components/Components';
 import { component as validateComponent } from './utils/validate';
 
 class Burger {

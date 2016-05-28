@@ -10,7 +10,9 @@ class Menu {
             top: {}
         }
     }
-
+    set item(item) {
+        
+    }
     addSize(name, item) {
         if (menuItemName(name) && menuItem(item, Size)) this.items.size[name.toLowerCase()] = item;
     }
