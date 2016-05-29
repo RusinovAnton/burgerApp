@@ -1,5 +1,5 @@
 import { forEach as _forEach } from 'lodash';
-import { componentType as isComponent, number, string } from '../utils/validate';
+import { isBurgerComponent, isNumber, isString } from '../../utils/validate';
 
 
 
@@ -10,7 +10,8 @@ class BurgerComponent {
             this.cost = params.cost;
             this.cal = params.cal;
         }
-        if(isComponent(params.type))
+        if(isComponent(params.type)) this.type = params.type;
+
     }
 }
 
