@@ -2,7 +2,7 @@ import { forEach as _forEach, toArray as _toArray }  from 'lodash';
 
 import * as validate from './validateBurger';
 
-import isDefined from '../utils/isDefined';
+const isUndefined = require('lodash').isUndefined;
 
 export default class Burger {
     /**
@@ -20,10 +20,10 @@ export default class Burger {
         if (validate.name(name)) this.itemName = name;
         this.components = {};
 
-        if(isDefined(components) && _toArray(components).length > 0) {
+        if(!isUndefined(components) && _toArray(components).length > 0) {
             _forEach(components, function(component, type){
                 if (validate.type(type)) {
-                    if (isDefined(component) && validate.component(component)) {
+                    if ((!isUndefined(component)) && validate.component(component)) {
                         this.components[type] = component
                     } else {
                         throw new Error('component is not defined');
@@ -33,6 +33,7 @@ export default class Burger {
         } else {
             throw new Error('components object is not defined or empty');
         }
+
     }
 
     set name(name) {

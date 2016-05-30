@@ -38,7 +38,7 @@ describe('BurgerComponent', function () {
         let mockBurgerComponent = new BurgerComponent('size',{
             name: 'Test',
             cost: 25,
-            cal: 20,
+            cal: 20
         });
         assert.equal(mockBurgerComponent.cal, 20);
         assert.equal(mockBurgerComponent.cost, 25);

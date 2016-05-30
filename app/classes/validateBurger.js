@@ -1,12 +1,14 @@
 import BurgerComponent from './BurgerComponent';
 
 import isChildOf from '../utils/isChildOf';
-import isDefined from '../utils/isDefined';
-import isString from '../utils/isString';
+
+import isString from 'lodash';
 import isBurgerComponent from '../utils/isBurgerComponent';
 
+const isUndefined = require('lodash').isUndefined;
+
 function name(name) {
-    if (!isDefined(name) || !isString(name)) throw new Error('Name is invalid');
+    if (isUndefined(name) || !isString(name)) throw new Error('Name is invalid');
     return true;
 }
 

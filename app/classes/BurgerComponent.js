@@ -1,8 +1,9 @@
 import { forEach as _forEach } from 'lodash';
+import isString from 'lodash';
+import isNumber from 'lodash';
 import isBurgerComponent from '../utils/isBurgerComponent';
-import isNumber from '../utils/isNumber';
-import isString from '../utils/isString';
-import isDefined from '../utils/isDefined';
+
+const isUndefined = require('lodash').isUndefined;
 
 export default class BurgerComponent {
     constructor(type, params) {
@@ -10,7 +11,8 @@ export default class BurgerComponent {
     }
 
     init(type, params) {
-        if (!isDefined(params)) throw new Error('params input required');
+
+        if (isUndefined(params)) throw new Error('params input required');
 
         if (isNumber(params.cost)) {
             this.cost = params.cost;
@@ -29,8 +31,7 @@ export default class BurgerComponent {
         } else {
             throw new Error('type is not valid');
         }
-
-        if(isDefined(params.name) && typeof params.name === 'string') {
+        if((!isUndefined(params.name)) && typeof params.name === 'string') {
             this.name = params.name;
         } else {
             throw new Error('params.name must be set');
