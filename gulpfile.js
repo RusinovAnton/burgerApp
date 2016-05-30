@@ -6,7 +6,7 @@ const webpack = require("webpack-stream");
 const mocha = require('gulp-mocha');
 const babel = require('babel-register');
 const argv = require('yargs').argv;
-//const gutil = require('gulp-util');
+const gutil = require('gulp-util');
 
 const config = {
     app: {
@@ -37,11 +37,10 @@ gulp.task('app', ['test'], function () {
 gulp.task('test', function(){
     if (!argv.notest) {
         return gulp.src(config.test.src, {read: false})
+            .pipe(plumber())
             .pipe(mocha(config.mocha));
     }
-    console.log('Skipping test task');
-    // TODO: install gutil
-    //gutil.log(gutil.colors,red("Skipping test task"));
+    gutil.log(gutil.colors.red("Skipping test task"));
     return;
 });
 

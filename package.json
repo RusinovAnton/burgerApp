@@ -49,7 +49,7 @@
     "yargs": "^4.7.1"
   },
   "scripts": {
-    "server": "nodemon ./server/bin/www",
+    "start": "nodemon ./server/bin/www",
     "db": "mongod --dbpath ~/data/db",
     "test": "gulp test"
   },
