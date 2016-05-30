@@ -1,9 +1,16 @@
 import { forEach as _forEach } from 'lodash';
 import { isString, isNumber } from 'lodash';
-import isBurgerComponent from '../utils/isBurgerComponent';
+import isBurgerComponent from './isBurgerComponent';
 import { isUndefined } from 'lodash';
 
-export default class BurgerComponent {
+class BurgerComponent {
+
+    /**
+     * constructor of the burger component
+     * @param type
+     * @param params
+     * @returns BurgerComponent
+     */
     constructor(type, params) {
         this.init(type, params);
     }
@@ -37,5 +44,24 @@ export default class BurgerComponent {
 
         this.machineName = `${this.type.toUpperCase()}_${this.name.toUpperCase()}`;
     }
-
 }
+
+class Size extends BurgerComponent {
+    constructor(params) {
+        super('size', params)
+    }
+}
+
+class Stuff extends BurgerComponent {
+    constructor(params) {
+        super('stuff', params)
+    }
+}
+
+class Topp extends BurgerComponent {
+    constructor(params) {
+        super('topp', params)
+    }
+}
+
+export { BurgerComponent, Size, Stuff, Topp };

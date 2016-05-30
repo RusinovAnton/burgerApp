@@ -1,7 +1,7 @@
 const assert = require('chai').assert;
 const expect = require('chai').expect;
 
-import BurgerComponent from '../../app/classes/components/BurgerComponent';
+import BurgerComponent from '../../app/classes/burger/components.js/BurgerComponent';
 
 describe('Size', function () {
     it('should be instance of BurgerComponent', function () {

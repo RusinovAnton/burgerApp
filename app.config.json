@@ -1,0 +1,6 @@
+{
+    "menuList": {
+        "GET": "/api/getMenuList",
+        "POST": "/api/setMenuList"
+    }
+}

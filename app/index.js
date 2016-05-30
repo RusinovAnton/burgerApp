@@ -1,6 +1,8 @@
-import Burger from './classes/Burger';
-import BurgerComponent from './classes/BurgerComponent';
+import BurgerComponent from './classes/burger/BurgerComponent';
+import Menu from './classes/Menu';
 
-var superBurgerino = new Burger();
+new Menu().fetch().then(function(items) {
+    console.log(items);
+});
 
-console.log(superBurgerino);
+console.log('meow!');

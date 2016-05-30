@@ -14,6 +14,9 @@ module.exports = {
             { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
         ]
     },
+    externals: {
+        'Config': JSON.stringify(require('./app.config.json'))
+    },
     plugins: [
         //new webpack.optimize.UglifyJsPlugin({
         //    compress: {

@@ -1,8 +1,8 @@
-import BurgerComponent from './BurgerComponent';
+import { BurgerComponent } from './burger/BurgerComponent';
 
 import isChildOf from '../utils/isChildOf';
 
-import isBurgerComponent from '../utils/isBurgerComponent';
+import isBurgerComponent from './burger/isBurgerComponent';
 import { isUndefined, isString } from 'lodash';
 
 function name(name) {
