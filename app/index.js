@@ -1,2 +1,2 @@
 import Burger from './classes/Burger';
-import menu from './setMenu';
+import BurgerComponent from './classes/BurgerComponent';

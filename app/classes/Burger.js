@@ -1,56 +1,44 @@
-import { forEach as _forEach }  from 'lodash';
-import { component as validateComponent } from './utils/validate';
+import { forEach as _forEach, toArray as _toArray }  from 'lodash';
 
-class Burger {
+import BurgerComponent from './BurgerComponent';
 
-    constructor(size, stuff, top) {
-        this.components = {
-            size
+import isBurgerComponent from '../utils/isBurgerComponent';
+import isChildOf from '../utils/isChildOf';
+import isDefined from '../utils/isDefined';
+import isString from '../utils/isString';
+
+export default class Burger {
+    /**
+     * constructor of Burger object
+     * @param { String } name
+     * @param { Object } components
+     * @returns { Burger }
+     */
+    constructor(name, components) {
+        this.init(name, components)
+    }
+    init(name, components) {
+        if (isDefined(name) && isString(name)) this.name = name; else throw new Error('Name is invalid');
+        this.components = {};
+
+        if(isDefined(components) && _toArray(components).length > 0) {
+            _forEach(components, function(value, key){
+                if (isString(key) && isBurgerComponent(key)) {
+                    if (isDefined(value)) {
+                        if (isChildOf(value, BurgerComponent) || (Array.isArray(value) && isChildOf(value[0], BurgerComponent))) {
+                            this.components[key] = value
+                        } else {
+                            throw new Error('value is not valid')
+                        }
+                    } else {
+                        throw new Error('value is not defined');
+                    }
+                } else {
+                    throw new Error('there is no such burgerComponent type');
+                }
+            }.bind(this));
+        } else {
+            throw new Error('components object is not defined or empty');
         }
-        this.init(size, stuff, top)
     }
-
-    set size(size) {
-        if (validateComponent(size, Size)) this.components.size = size;
-    }
-
-    set stuff(stuff) {
-        if (Array.isArray(stuff)) {
-            this.components.stuff.concat(stuff.map(function (stuffItem) {
-                return validateComponent(stuffItem, Stuff);
-            }));
-        } else if (validateComponent(stuff, Stuff)) {
-            this.components.stuff ? this.components.stuff.push(stuff) : this.components.stuff = [stuff];
-        }
-    }
-
-    set top(top) {
-        if (Array.isArray(top)) {
-            this.components.top.concat(top.map(function (topItem) {
-                return validateComponent(topItem, Top);
-            }));
-        } else if (validateComponent(top, Top)) {
-            this.components.top ? this.components.top.push(top) : this.components.top = [top];
-        }
-    }
-
-    get size() {
-        return this.components.size;
-    }
-
-    get stuff() {
-        return this.components.stuff;
-    }
-
-    get top() {
-        return this.components.top;
-    }
-
-    init(size, stuff, top) {
-        this.size = size;
-        this.stuff = stuff;
-        this.top = top;
-    }
-}
-
-export default Burger;
+};
