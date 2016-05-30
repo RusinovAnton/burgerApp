@@ -1,9 +1,7 @@
 import { forEach as _forEach } from 'lodash';
-import isString from 'lodash';
-import isNumber from 'lodash';
+import { isString, isNumber } from 'lodash';
 import isBurgerComponent from '../utils/isBurgerComponent';
-
-const isUndefined = require('lodash').isUndefined;
+import { isUndefined } from 'lodash';
 
 export default class BurgerComponent {
     constructor(type, params) {

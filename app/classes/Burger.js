@@ -1,8 +1,9 @@
-import { forEach as _forEach, toArray as _toArray }  from 'lodash';
+import { forEach as _forEach, size as _size }  from 'lodash';
 
 import * as validate from './validateBurger';
 
-const isUndefined = require('lodash').isUndefined;
+import summarize from '../utils/summarize';
+import { isUndefined } from 'lodash';
 
 export default class Burger {
     /**
@@ -17,23 +18,13 @@ export default class Burger {
     }
 
     init(name, components) {
-        if (validate.name(name)) this.itemName = name;
-        this.components = {};
-
-        if(!isUndefined(components) && _toArray(components).length > 0) {
-            _forEach(components, function(component, type){
-                if (validate.type(type)) {
-                    if ((!isUndefined(component)) && validate.component(component)) {
-                        this.components[type] = component
-                    } else {
-                        throw new Error('component is not defined');
-                    }
-                }
-            }.bind(this));
-        } else {
-            throw new Error('components object is not defined or empty');
+        if (!isUndefined(name)) this.name = name;
+        if (!isUndefined(components)) {
+            this.components = {};
+            if (!isUndefined(components.size)) this.size = components.size;
+            if (!isUndefined(components.stuff)) this.stuff = components.stuff;
+            if (!isUndefined(components.topp)) this.topp = components.topp;
         }
-
     }
 
     set name(name) {
@@ -66,5 +57,13 @@ export default class Burger {
 
     get topp() {
         return this.components.topp;
+    }
+
+    get cost() {
+        return summarize('cost', this.components);
+    }
+
+    get callories(){
+        return summarize('cal', this.components);
     }
 };

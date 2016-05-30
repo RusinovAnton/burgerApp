@@ -1,4 +1,4 @@
-var assert = require('chai').assert;
+var equal = require('chai').assert.equal;
 var expect = require('chai').expect;
 
 import BurgerComponent from '../../app/classes/BurgerComponent';
@@ -40,11 +40,11 @@ describe('BurgerComponent', function () {
             cost: 25,
             cal: 20
         });
-        assert.equal(mockBurgerComponent.cal, 20);
-        assert.equal(mockBurgerComponent.cost, 25);
-        assert.equal(mockBurgerComponent.name, 'Test');
-        assert.equal(mockBurgerComponent.type, 'SIZE');
-        assert.equal(mockBurgerComponent.machineName, 'SIZE_TEST');
+        equal(mockBurgerComponent.cal, 20);
+        equal(mockBurgerComponent.cost, 25);
+        equal(mockBurgerComponent.name, 'Test');
+        equal(mockBurgerComponent.type, 'SIZE');
+        equal(mockBurgerComponent.machineName, 'SIZE_TEST');
     });
 });
 
