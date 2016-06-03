@@ -1,8 +1,7 @@
-var equal = require('chai').assert.equal;
-var expect = require('chai').expect;
+import { assert, expect } from 'chai';
 
-import Burger from '../../app/classes/burger/Burger';
-import { BurgerComponent } from '../../app/classes/burger/BurgerComponent';
+import Burger from '../../app/storages/entities/burger/Burger';
+import { BurgerComponent } from '../../app/storages/entities/burger/BurgerComponent';
 
 var burgerComponents = {
     size: new BurgerComponent('size', {
@@ -36,7 +35,7 @@ describe('Burger', function () {
             new Burger('FizzBuzzrger', burgerComponents)
         }).to.not.throw(Error);
 
-        //equal(new Burger('mockBurger', burgerComponents) instanceof Burger, true);
+        //assert.equal(new Burger('mockBurger', burgerComponents) instanceof Burger, true);
 
     });
     it('should validate input args', function () {
@@ -59,10 +58,10 @@ describe('Burger', function () {
     it('should have getters for its\' components', function () {
         var mockBurgerino = new Burger('Yumm', burgerComponents);
 
-        equal(mockBurgerino.name, 'Yumm');
-        equal(mockBurgerino.size.name, burgerComponents.size.name);
-        equal(mockBurgerino.stuff.length, burgerComponents.stuff.length);
-        equal(mockBurgerino.topp.length, burgerComponents.topp.length);
+        assert.equal(mockBurgerino.name, 'Yumm');
+        assert.equal(mockBurgerino.size.name, burgerComponents.size.name);
+        assert.equal(mockBurgerino.stuff.length, burgerComponents.stuff.length);
+        assert.equal(mockBurgerino.topp.length, burgerComponents.topp.length);
 
     });
     it('should have setters for it\'s components', function () {
@@ -73,12 +72,12 @@ describe('Burger', function () {
         mockBurgerino.stuff = [new BurgerComponent('stuff', {name: 'magic', cost: 123, cal: 321})];
         mockBurgerino.topp = [new BurgerComponent('topp', {name: 'top', cost: 333, cal: 444})];
 
-        equal(mockBurgerino.name, 'NOM!');
-        equal(mockBurgerino.size.name, 'xsmall');
-        equal(mockBurgerino.stuff.length, 1);
-        equal(mockBurgerino.stuff[0].name, 'magic');
-        equal(mockBurgerino.topp.length, 1);
-        equal(mockBurgerino.topp[0].cost, 333);
+        assert.equal(mockBurgerino.name, 'NOM!');
+        assert.equal(mockBurgerino.size.name, 'xsmall');
+        assert.equal(mockBurgerino.stuff.length, 1);
+        assert.equal(mockBurgerino.stuff[0].name, 'magic');
+        assert.equal(mockBurgerino.topp.length, 1);
+        assert.equal(mockBurgerino.topp[0].cost, 333);
     });
     it('setters must throw Error on invalid input', function(){
         expect(()=>{ mockBurgerino.size = 1; }).to.throw(Error);
@@ -89,10 +88,10 @@ describe('Burger', function () {
     });
     it('should have method that returns total cost of the Burger', function(){
         var mockBurger = new Burger('costless', burgerComponents);
-        equal(mockBurger.cost, 92);
+        assert.equal(mockBurger.cost, 92);
     });
     it('should have method that returns total callories of the Burger', function(){
         var mockBurger = new Burger('costless', burgerComponents);
-        equal(mockBurger.callories, 100);
+        assert.equal(mockBurger.callories, 100);
     });
 });

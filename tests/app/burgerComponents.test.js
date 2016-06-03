@@ -1,7 +1,6 @@
-var equal = require('chai').assert.equal;
-var expect = require('chai').expect;
+import { assert, expect } from 'chai';
 
-import { BurgerComponent } from '../../app/classes/burger/BurgerComponent';
+import { BurgerComponent } from '../../app/storages/entities/burger/BurgerComponent';
 
 describe('BurgerComponent', function () {
     it('should take (name, params) as params', () => {
@@ -40,11 +39,11 @@ describe('BurgerComponent', function () {
             cost: 25,
             cal: 20
         });
-        equal(mockBurgerComponent.cal, 20);
-        equal(mockBurgerComponent.cost, 25);
-        equal(mockBurgerComponent.name, 'Test');
-        equal(mockBurgerComponent.type, 'SIZE');
-        equal(mockBurgerComponent.machineName, 'SIZE_TEST');
+        assert.equal(mockBurgerComponent.cal, 20);
+        assert.equal(mockBurgerComponent.cost, 25);
+        assert.equal(mockBurgerComponent.name, 'Test');
+        assert.equal(mockBurgerComponent.type, 'SIZE');
+        assert.equal(mockBurgerComponent.machineName, 'SIZE_TEST');
     });
 });
 

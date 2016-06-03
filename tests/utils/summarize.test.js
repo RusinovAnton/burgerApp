@@ -1,6 +1,7 @@
-var equal = require('chai').assert.equal;
+import { assert } from 'chai';
+var equal = assert.equal;
 
-import summarize from '../../app/utils/summarize';
+import summarize from '../../app/storages/entities/utils/summarize';
 
 describe('summarize(key, obj)', function(){
     it('', function(){

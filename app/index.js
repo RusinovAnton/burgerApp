@@ -1,8 +1,7 @@
-import BurgerComponent from './classes/burger/BurgerComponent';
-import Menu from './classes/Menu';
+import { render as ReactRender } from 'react-dom';
+import routes from './view/routes';
 
-new Menu().fetch().then(function(items) {
-    console.log(items);
-});
-
-console.log('meow!');
+ReactRender (
+    routes,
+    document.getElementById('app')
+);

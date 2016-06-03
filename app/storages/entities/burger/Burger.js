@@ -2,7 +2,7 @@ import { forEach as _forEach, size as _size }  from 'lodash';
 
 import * as validate from './../validateBurger';
 
-import summarize from '../../utils/summarize';
+import summarize from '../utils/summarize';
 import { isUndefined } from 'lodash';
 
 export default class Burger {
