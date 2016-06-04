@@ -46,4 +46,3 @@ describe('BurgerComponent', function () {
         assert.equal(mockBurgerComponent.machineName, 'SIZE_TEST');
     });
 });
-

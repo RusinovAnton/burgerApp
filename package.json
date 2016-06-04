@@ -1,66 +1,67 @@
 {
-  "name": "burger-app",
-  "version": "1.0.0",
-  "description": "",
-  "main": "app/index.js",
-  "directories": {
-    "test": "tests"
-  },
-  "dependencies": {
-    "body-parser": "^1.13.3",
-    "cookie-parser": "^1.3.5",
-    "dateformat": "^1.0.12",
-    "events": "^1.1.0",
-    "express": "^4.13.4",
-    "express-handlebars": "^3.0.0",
-    "express-session": "^1.13.0",
-    "http-server": "^0.8.5",
-    "lodash": "^4.13.1",
-    "method-override": "^2.3.6",
-    "mongoose": "^4.4.19",
-    "passport": "^0.3.2",
-    "passport-local": "^1.0.0",
-    "react": "^15.1.0",
-    "react-dom": "^15.1.0",
-    "react-router": "^2.4.1",
-    "require-tree": "^1.1.1",
-    "serve-static": "^1.10.2"
-  },
-  "devDependencies": {
-    "babel-core": "^6.9.0",
-    "babel-loader": "^6.2.4",
-    "babel-preset-es2015": "^6.9.0",
-    "babel-preset-react": "^6.5.0",
-    "babel-register": "^6.9.0",
-    "chai": "^3.5.0",
-    "gulp": "^3.9.1",
-    "gulp-if": "^2.0.1",
-    "gulp-mocha": "^2.2.0",
-    "gulp-plumber": "^1.1.0",
-    "gulp-uglify": "^1.5.3",
-    "gulp-util": "^3.0.7",
-    "jshint": "^2.9.2",
-    "jshint-loader": "^0.8.3",
-    "mocha": "^2.5.2",
-    "nconf": "^0.8.4",
-    "pre-commit": "^1.1.3",
-    "webpack": "^1.13.1",
-    "webpack-stream": "^3.2.0",
-    "yargs": "^4.7.1"
-  },
-  "scripts": {
-    "start": "nodemon ./server/bin/www",
-    "db": "mongod --dbpath ~/data/db",
-    "test": "gulp test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/RusinovAnton/burgerApp.git"
-  },
-  "author": "Rusinov Anton",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/RusinovAnton/burgerApp/issues"
-  },
-  "homepage": "https://github.com/RusinovAnton/burgerApp#readme"
+    "name": "burger-app",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app/index.js",
+    "directories": {
+        "test": "tests"
+    },
+    "dependencies": {
+        "body-parser": "^1.13.3",
+        "cookie-parser": "^1.3.5",
+        "dateformat": "^1.0.12",
+        "events": "^1.1.0",
+        "express": "^4.13.4",
+        "express-handlebars": "^3.0.0",
+        "express-session": "^1.13.0",
+        "http-server": "^0.8.5",
+        "lodash": "^4.13.1",
+        "method-override": "^2.3.6",
+        "mongoose": "^4.4.19",
+        "passport": "^0.3.2",
+        "passport-local": "^1.0.0",
+        "react": "^15.1.0",
+        "react-dom": "^15.1.0",
+        "react-router": "^2.4.1",
+        "require-tree": "^1.1.1",
+        "serve-static": "^1.10.2"
+    },
+    "devDependencies": {
+        "babel-core": "^6.9.0",
+        "babel-loader": "^6.2.4",
+        "babel-preset-es2015": "^6.9.0",
+        "babel-preset-react": "^6.5.0",
+        "babel-register": "^6.9.0",
+        "chai": "^3.5.0",
+        "gulp": "^3.9.1",
+        "gulp-if": "^2.0.1",
+        "gulp-mocha": "^2.2.0",
+        "gulp-plumber": "^1.1.0",
+        "gulp-uglify": "^1.5.3",
+        "gulp-util": "^3.0.7",
+        "jshint": "^2.9.2",
+        "jshint-loader": "^0.8.3",
+        "mocha": "^2.5.2",
+        "nconf": "^0.8.4",
+        "pre-commit": "^1.1.3",
+        "webpack": "^1.13.1",
+        "webpack-stream": "^3.2.0",
+        "yargs": "^4.7.1"
+    },
+    "scripts": {
+        "start": "nodemon ./server/bin/www",
+        "build": "gulp",
+        "db": "mongod --dbpath ~/data/db",
+        "test": "gulp test"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/RusinovAnton/burgerApp.git"
+    },
+    "author": "Rusinov Anton",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/RusinovAnton/burgerApp/issues"
+    },
+    "homepage": "https://github.com/RusinovAnton/burgerApp#readme"
 }

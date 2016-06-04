@@ -30,7 +30,6 @@ var burgerComponents = {
 
 describe('Burger', function () {
     it('should take (name, params) as parameters and return a Burger object', function () {
-
         expect(()=> {
             new Burger('FizzBuzzrger', burgerComponents)
         }).to.not.throw(Error);
@@ -85,6 +84,11 @@ describe('Burger', function () {
         expect(()=>{ mockBurgerino.topp = 1; }).to.throw(Error);
         expect(()=>{ mockBurgerino.size = null; }).to.throw(Error);
         expect(()=>{ mockBurgerino.size = undefined; }).to.throw(Error);
+    });
+    it('could be empty', ()=>{
+        var emptyBurger = new Burger();
+        assert.equal(emptyBurger.name, '');
+        assert.equal(emptyBurger.size, undefined);
     });
     it('should have method that returns total cost of the Burger', function(){
         var mockBurger = new Burger('costless', burgerComponents);

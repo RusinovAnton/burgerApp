@@ -1,14 +1,26 @@
-'use strict';
+import { Component } from 'react';
 
-import Container from './BurgerContainer';
-import Render from './BurgerRender';
+export default class Burger extends Component {
+    render() {
+        let className = 'burger--item';
+        if (this.props.size) className + ' ' + this.props.size;
+        if (typeof this.props.stuff !== void 0) {
+            let components = this.props.stuff.map((component)=>{
+                return (
+                    <div className={'burger--component' + component.name}>
+                    </div>
+                )
+            });
+        } else {
+            throw new Error('there is no stuff on burger');
+        }
 
-export default class Burger extends Container {
-    constructor (props) {
-        super(props);
-    }
-
-    render () {
-        return Render.call(this, this.props, this.state);
+        return (
+          <div className={className}>
+            <div className='burger--components'>
+                {components}
+            </div>
+          </div>
+        );
     }
 }

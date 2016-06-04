@@ -1,11 +1,17 @@
 'use strict';
 
+import { EventEmitter } from 'events';
+
+const CHANGE_EVENT = 'change';
+
 let _callbacks = [];
 let _promises = [];
 
-class Dispatcher {
+class Dispatcher extends EventEmitter {
 
-    constructor(){}
+    constructor(){
+        super()
+    }
 
     /**
      * Register a Store's callback so that it may be invoked by an action.
@@ -22,6 +28,7 @@ class Dispatcher {
      * @param  {object} payload The data from the action.
      */
     dispatch(payload) {
+        const _this = this;
         // First create array of promises for callbacks to reference.
         let resolves = [];
         let rejects = [];
@@ -37,11 +44,24 @@ class Dispatcher {
             // See waitFor() for why this might be useful.
             Promise.resolve(callback(payload)).then(function() {
                 resolves[i](payload);
+                _this.emitChange();
             }, function() {
                 rejects[i](new Error('Dispatcher callback unsuccessful'));
             });
         });
         _promises = [];
+    }
+
+    emitChange() {
+        this.emit(CHANGE_EVENT);
+    }
+
+    addChangeListener(callback) {
+        this.on(CHANGE_EVENT, callback);
+    }
+
+    removeChangeListener(callback) {
+        this.removeListener(CHANGE_EVENT, callback);
     }
 
 }

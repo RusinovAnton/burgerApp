@@ -13,14 +13,14 @@ export default class Burger {
      * @returns { Burger }
      */
 
-    constructor(name, components) {
+    constructor(name, components) {``
         this.init(name, components);
     }
 
     init(name, components) {
-        if (!isUndefined(name)) this.name = name;
+        this.name = name || '';
+        this.components = {};
         if (!isUndefined(components)) {
-            this.components = {};
             if (!isUndefined(components.size)) this.size = components.size;
             if (!isUndefined(components.stuff)) this.stuff = components.stuff;
             if (!isUndefined(components.topp)) this.topp = components.topp;

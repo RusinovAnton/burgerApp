@@ -1,12 +1,12 @@
 import React from 'react';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
-import Burger from '../components/Burger';
+import BurgerList from '../components/BurgerList';
 //import Menu from '../components/Menu';
 
 var routes = (
     <Router history={hashHistory}>
-        <Route path="/" component={ Burger }/>
+        <Route path="/" component={ BurgerList }/>
     </Router>
 );
 
