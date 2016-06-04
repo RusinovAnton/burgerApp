@@ -3,7 +3,7 @@
 const express           = require('express'),
     requireTree         = require('require-tree'),
     init                = requireTree('./init/'),
-    logger              = require('morgan'),
+    //logger              = require('morgan'),
     path                = require('path'),
     serveStatic         = require('serve-static'),
     cookieParser        = require('cookie-parser'),
