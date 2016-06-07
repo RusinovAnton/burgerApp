@@ -24,5 +24,4 @@ class burgerStore {
     }
 }
 
-
 export default new burgerStore();

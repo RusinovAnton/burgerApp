@@ -1,10 +1,11 @@
-import { Component } from 'react';
 
-export default class Burger extends Component {
+import React from 'react';
+
+export default class Burger extends React.Component {
     render() {
         let className = 'burger--item';
         if (this.props.size) className + ' ' + this.props.size;
-        if (typeof this.props.stuff !== void 0) {
+        if (this.props.stuff !== void 0) {
             let components = this.props.stuff.map((component)=>{
                 return (
                     <div className={'burger--component' + component.name}>
@@ -12,7 +13,7 @@ export default class Burger extends Component {
                 )
             });
         } else {
-            throw new Error('there is no stuff on burger');
+            return (<div>there is no stuff on burger yet</div>);
         }
 
         return (

@@ -16,7 +16,6 @@ export default function(length) {
         } else {
             uniqid.push(String.fromCharCode(random(48, 57)));
         }
-        console.log(uniqid)
     }
 
     return uniqid.join('');
