@@ -4,7 +4,7 @@ const mongoose = require('mongoose'),
 
 // db init
 module.exports = function(app){
-    mongoose.connect('mongodb://localhost:27017/react-blog');
+    mongoose.connect('mongodb://localhost:27017/react-burger');
     const db = mongoose.connection;
 
     db.on('error', function (err) {

@@ -1,1 +1,0 @@
-import importMenu from '../../app'

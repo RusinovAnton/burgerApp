@@ -12,7 +12,7 @@ burgerDispatcher.js:7 registered dispatch
 burger.storage.js:13 storage
 burger.storage.js:14 burgerStore {}
 dispatcher.js:48 dispather service
-BurgerContainer.js:35 getState
+BurgerApp.js:35 getState
 
 ## Build
 
