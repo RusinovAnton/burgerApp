@@ -2,6 +2,4 @@
 node_modules/
 vendor/
 npm-debug.log*
-public/assets/css/
-public/assets/js/
 .DS_Store
