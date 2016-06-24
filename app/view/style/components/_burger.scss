@@ -1,6 +1,8 @@
 .burger__body {
+    padding: 10px;
+    margin-bottom: 10px;
     cursor: pointer;
     &.clicked {
-        background: #f0f0f0;
+        background: transparentize(#fff,0.5);
     }
 }

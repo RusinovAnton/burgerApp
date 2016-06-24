@@ -1,4 +1,9 @@
+.burger__components-list {
+    margin-bottom: 10px;
+}
+
 .burger__component {
+    cursor: pointer;
     text-align: center;
     margin-bottom: 5px;
     box-shadow: $shadow-sm;
