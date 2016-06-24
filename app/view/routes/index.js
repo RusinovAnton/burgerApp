@@ -7,7 +7,7 @@ import BurgerContainer from '../components/burger/BurgerListContainer';
 
 var routes = (
     <Router history={hashHistory}>
-        <Route path="/"/>
+        <Route path="/" component={ BurgerListContainer }/>
         <Route path="/list" component={ BurgerListContainer }/>
         <Route path="/component/:id" component={ BurgerComponentsContainer }/>
         <Route path="/burger/:id" component={ BurgerContainer }/>

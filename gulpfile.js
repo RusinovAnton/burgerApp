@@ -39,13 +39,13 @@ const config = {
 
 // Static server
 gulp.task('serve', function() {
-    browserSync.init({
-        server: {
-            baseDir: "./public"
-        }
+    browserSync.init(null, {
+        proxy: 'http://localhost:1337',
+        files: ['./public/**/*'],
+        port: 7000
     });
 
-    gulp.watch("public/**/*").on('change', browserSync.reload);
+    // gulp.watch("public/**/*").on('change', browserSync.reload);
 });
 
 gulp.task('css',()=>{

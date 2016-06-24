@@ -1,6 +1,10 @@
 @font-face {
-    font-family: 'Press Start 2P';
+    font-family: 'Press-Start-2P';
     src: url(../fonts/press_start_2p/PressStart2P-Regular.ttf);
+}
+
+*:focus {
+    outline: 0!important;
 }
 
 ul {
@@ -8,10 +12,13 @@ ul {
 }
 
 body {
-    font-family: 'Press Start 2P', monospace;
+    font-family: 'Press-Start-2P', monospace;
     color: #29203a;
     background: rgba(181, 157, 98, 0.42);
 }
+
+::-moz-selection { background: yellow; }
+::selection { background: yellow; }
 
 .isLoading {
     display: none;
@@ -24,4 +31,16 @@ body {
 .burger--item {
     padding: 10px;
     border: 1px solid #e0e0e0;
+}
+
+h1 {
+    color: $yellow;
+}
+
+h2 {
+    color: $cyan;
+}
+
+h3 {
+    color: $pink;
 }
