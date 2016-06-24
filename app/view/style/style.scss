@@ -1,2 +1,6 @@
-@import 'bootstrap';
+@import '../../../node_modules/scss-mixins-collection/mixins/__mixins';
+@import 'variables';
+
+@import 'bootstrap/bootstrap';
 @import 'content';
+@import 'components/__components';

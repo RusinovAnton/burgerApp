@@ -1,0 +1,6 @@
+.burger__body {
+    cursor: pointer;
+    &.clicked {
+        background: #f0f0f0;
+    }
+}
