@@ -3,6 +3,10 @@
     src: url(../fonts/press_start_2p/PressStart2P-Regular.ttf);
 }
 
+ul {
+    @include reset-list;
+}
+
 body {
     font-family: 'Press Start 2P', monospace;
     color: #29203a;

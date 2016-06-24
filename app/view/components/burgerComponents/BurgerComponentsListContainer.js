@@ -41,6 +41,13 @@ export default class BurgerComponentsListContainer extends React.Component {
                     callories: 45
                 },
                 {
+                    name: 'poultry',
+                    type: 'stuff',
+                    color: '#69280b',
+                    cost: 100,
+                    callories: 250
+                },
+                {
                     name: 'beef',
                     type: 'stuff',
                     color: '#431b1c',
@@ -48,9 +55,30 @@ export default class BurgerComponentsListContainer extends React.Component {
                     callories: 250
                 },
                 {
+                    name: 'pork',
+                    type: 'stuff',
+                    color: '#611715',
+                    cost: 130,
+                    callories: 270
+                },
+                {
                     name: 'salad',
                     type: 'stuff',
                     color: '#b2c33e',
+                    cost: 45,
+                    callories: 20
+                },
+                {
+                    name: 'cheese',
+                    type: 'stuff',
+                    color: '#f3d39a',
+                    cost: 45,
+                    callories: 20
+                },
+                {
+                    name: 'bun',
+                    type: 'stuff',
+                    color: '#f5af62',
                     cost: 45,
                     callories: 20
                 }
