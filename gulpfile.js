@@ -9,6 +9,10 @@ const argv = require('yargs').argv;
 const gutil = require('gulp-util');
 const sass = require('gulp-sass');
 const cssnano = require('gulp-cssnano');
+const browserSync = require('browser-sync').create();
+const del = require('del');
+const path = require('path');
+
 
 const config = {
     css: {
@@ -33,16 +37,26 @@ const config = {
     }
 };
 
+// Static server
+gulp.task('serve', function() {
+    browserSync.init({
+        server: {
+            baseDir: "./public"
+        }
+    });
+
+    gulp.watch("public/**/*").on('change', browserSync.reload);
+});
+
 gulp.task('css',()=>{
+
+    // del.sync(path.join(config.css.dest, 'style.css'));
+
     return gulp.src(config.css.src)
         .pipe(plumber())
         .pipe(sass())
         .pipe(cssnano())
         .pipe(gulp.dest(config.css.dest));
-});
-
-gulp.task('watch:css', ['css'], ()=>{
-    gulp.watch(config.css.src, ['css']);
 });
 
 gulp.task('app', ['test'], function () {
@@ -59,10 +73,11 @@ gulp.task('test', function(){
             .pipe(mocha(config.mocha));
     }
     gutil.log(gutil.colors.red("Skipping test task"));
-    return;
+    return false;
 });
 
-gulp.task('watch', ['test', 'app'], function () {
+gulp.task('watch', ['app', 'css'], function () {
+    gulp.watch(config.css.src, ['css']);
     gulp.watch('./app/**/*.js', ['app']);
 });
 
