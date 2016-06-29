@@ -54,7 +54,8 @@
         "yargs": "^4.7.1"
     },
     "scripts": {
-        "start": "node ./server/bin/www & browser-sync start --proxy 'localhost:1337' --files 'public/**/*' --port 7777",
+        "start": "nodemon ./server/bin/www",
+        "sync": "browser-sync start --proxy 'localhost:1337' --files 'public/**/*' --port 7777",
         "build": "gulp",
         "db": "mongod --dbpath ~/data/db",
         "test": "gulp test"

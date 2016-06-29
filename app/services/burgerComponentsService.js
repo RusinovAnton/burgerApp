@@ -86,15 +86,40 @@ class burgerComponentsService extends Service {
     }
 
     getComponents(query) {
-        return new Promise((resolve, reject)=>{
-            if (this._components) resolve(this._components);
-            else reject(new Error('ouch! no components found'));
-        });
+        return fetch('/api/components_list')
+            .then((res)=> {
+                return res.json()
+            })
+            .then((data)=> {
+                return data;
+            });
     }
 
     addComponent(component) {
+
         this._components.push(component);
-        console.log(this._components);
+
+        let data = 'component=' + JSON.stringify(component);
+
+        return fetch('api/component', {
+            method: 'POST',
+            headers: {
+                "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+            },
+            body: data
+        })
+            .then((res)=> {
+                if (res.status >= 200 &&  res.status < 400) return false;
+                else {
+                    return res.json()
+                }
+            })
+            .then((err)=>{
+                console.log(err);
+            })
+            .catch((err)=>{
+                console.error(err);
+            })
     }
 
 }
