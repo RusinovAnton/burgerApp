@@ -30,7 +30,6 @@ export default class BurgerApp extends React.Component {
             showBurgerComponentsForm: !this.state.showBurgerComponentsForm
         });
     }
-    
     render(){
         return (
             <div>

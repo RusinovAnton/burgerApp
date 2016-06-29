@@ -9,7 +9,6 @@ const argv = require('yargs').argv;
 const gutil = require('gulp-util');
 const sass = require('gulp-sass');
 const cssnano = require('gulp-cssnano');
-const browserSync = require('browser-sync').create();
 const del = require('del');
 const path = require('path');
 
@@ -37,18 +36,7 @@ const config = {
     }
 };
 
-// Static server
-gulp.task('serve', function() {
-    browserSync.init(null, {
-        proxy: 'http://localhost:1337',
-        files: ['./public/**/*'],
-        port: 7000
-    });
-
-    // gulp.watch("public/**/*").on('change', browserSync.reload);
-});
-
-gulp.task('css',()=>{
+gulp.task('css', ()=> {
 
     // del.sync(path.join(config.css.dest, 'style.css'));
 
@@ -66,7 +54,7 @@ gulp.task('app', ['test'], function () {
         .pipe(gulp.dest(config.app.dest));
 });
 
-gulp.task('test', function(){
+gulp.task('test', function () {
     if (!argv.notest) {
         return gulp.src(config.test.src, {read: false})
             .pipe(plumber())
