@@ -14,7 +14,6 @@ export default class BurgerApp extends React.Component {
 
         this.state = {
             showBurgerForm: false,
-            showBurgerComponentsForm: false
         };
 
         this.showBurgerForm = this.showBurgerForm.bind(this);
@@ -37,13 +36,12 @@ export default class BurgerApp extends React.Component {
                     BurgerApp
                 </h1>
                 <div className="row">
-                    <div className="col-md-6">
+                    <div className="col-md-7">
                         <BurgerList/>
                         {this.renderBurgerForm()}
                     </div>
-                    <div className="col-md-6">
+                    <div className="col-md-5">
                         <BurgerComponentsList/>
-                        {this.renderBurgerComponentForm()}
                     </div>
                 </div>
             </div>
@@ -54,13 +52,6 @@ export default class BurgerApp extends React.Component {
             return (<BurgerForm/>);
         } else {
             return (<div className="btn btn-danger" onClick={this.showBurgerForm} >add burger +</div>);
-        }
-    }
-    renderBurgerComponentForm(){
-        if (this.state.showBurgerComponentsForm) {
-            return (<BurgerComponentForm/>)
-        } else {
-            return (<div className="btn btn-info" onClick={this.showBurgerComponentsForm} >add component +</div>)
         }
     }
 }

@@ -6,7 +6,7 @@ const middlewares = requireTree('../middlewares');
 const router = require('express').Router();
 
 router
-    
+
     // base routes
     .get    ('/',                    controllers.render('index', {page: {name: 'Burgerino', title: 'Burgerino'}})  )
 
@@ -17,9 +17,10 @@ router
     .post   ('/api/burger',          controllers.api.burgerController.postBurger)
 
     //    BurgerComponents
-    .get    ('/api/components_list', controllers.api.menuController.getComponentsList)
     .get    ('/api/component/:id?',  controllers.api.menuController.getComponent)
-    .post   ('/api/component',       controllers.api.menuController.postComponent);
+    .post   ('/api/component',       controllers.api.menuController.postComponent)
+    .put    ('/api/component/:id',   controllers.api.menuController.updateComponent)
+    .delete ('/api/component/:id',   controllers.api.menuController.deleteComponent);
 
 module.exports = function(app){
     app.use('/', router);

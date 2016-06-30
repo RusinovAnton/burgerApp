@@ -1,8 +1,7 @@
 'use strict';
 
 import React from 'react';
-import BurgerComponent from '../burgerComponents/BurgerComponent';
-import {uniqueId as _uniqueId} from 'lodash';
+import BurgerComponentContainer from '../burgerComponents/BurgerComponentContainer';
 
 export default class Burger extends React.Component {
     constructor(props) {
@@ -27,8 +26,8 @@ export default class Burger extends React.Component {
             <div className={"burger__body" + clicked} onClick={this.handleClick}>
                 <span className="burger__name">{ this.props.name }</span>
                 <ul className="burger__components">
-                    {this.props.components.map(({name, type, color})=>{
-                        return (<BurgerComponent key={_uniqueId('_')} name={name} type={type} color={color} />)
+                    {this.props.components.map((component, key)=>{
+                        return (<BurgerComponentContainer key={key} component={component} />)
                     })}
                 </ul>
             </div>

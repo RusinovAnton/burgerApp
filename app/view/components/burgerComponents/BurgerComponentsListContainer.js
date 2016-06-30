@@ -8,11 +8,17 @@ export default class BurgerComponentsListContainer extends React.Component {
     constructor() {
         super();
         this.state = {contentLoaded: false, components: []}
+
+        this.createComponent = this.createComponent.bind(this);
+    }
+
+    createComponent() {
+
     }
 
     componentDidMount() {
         Service.
-            getComponents().
+            getComponent().
             then((components)=>{
                 this.setState({components: components});
             });
@@ -20,7 +26,10 @@ export default class BurgerComponentsListContainer extends React.Component {
 
     render() {
         return (
-            <BurgerComponentsList components={this.state.components}/>
+            <div>
+                <BurgerComponentsList components={this.state.components}/>
+                <button type="button" onClick={this.createComponent} className="btn btn-info" onClick={this.showBurgerComponentsForm} >add component +</button>
+            </div>
         )
     }
 }

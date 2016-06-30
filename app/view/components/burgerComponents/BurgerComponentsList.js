@@ -1,7 +1,5 @@
 import React from 'react';
-import BurgerComponent from './BurgerComponent';
-
-import {uniqueId as _uniqueId} from 'lodash';
+import BurgerComponentContainer from './BurgerComponentContainer';
 
 export default class BurgerComponentsList extends React.Component {
     render() {
@@ -9,9 +7,9 @@ export default class BurgerComponentsList extends React.Component {
             <div>
                 <h2>Burger Components</h2>
                 <div className="burger__components-list">
-                    {this.props.components.map(({name, type, color})=> {
+                    {this.props.components.map((component, key)=> {
                         return (
-                            <BurgerComponent key={_uniqueId('_')} name={name} type={type} color={color} />
+                            <BurgerComponentContainer key={key} isEditable={true} component={component}/>
                         )
                     })}
                 </div>

@@ -16,6 +16,7 @@ export default class BurgerListContainer extends React.Component {
                     name: 'ezy',
                     components: [
                         {
+                            _id: 'id',
                             name: 'mayo',
                             type: 'topping',
                             color: '#f0eeb9',
@@ -23,6 +24,7 @@ export default class BurgerListContainer extends React.Component {
                             callories: 130
                         },
                         {
+                            _id: 'id',
                             name: 'sauce',
                             type: 'topping',
                             color: '#c98973',
@@ -30,6 +32,7 @@ export default class BurgerListContainer extends React.Component {
                             callories: 2
                         },
                         {
+                            _id: 'id',
                             name: 'tomato',
                             type: 'stuff',
                             color: '#f96244',
@@ -37,6 +40,7 @@ export default class BurgerListContainer extends React.Component {
                             callories: 67
                         },
                         {
+                            _id: 'id',
                             name: 'onion',
                             type: 'stuff',
                             color: '#d9d2c5',
@@ -44,6 +48,7 @@ export default class BurgerListContainer extends React.Component {
                             callories: 45
                         },
                         {
+                            _id: 'id',
                             name: 'beef',
                             type: 'stuff',
                             color: '#431b1c',
@@ -51,6 +56,7 @@ export default class BurgerListContainer extends React.Component {
                             callories: 250
                         },
                         {
+                            _id: 'id',
                             name: 'salad',
                             type: 'stuff',
                             color: '#b2c33e',
@@ -63,6 +69,7 @@ export default class BurgerListContainer extends React.Component {
                     name: 'peezy',
                     components: [
                         {
+                            _id: 'id',
                             name: 'mayo',
                             type: 'topping',
                             color: '#f0eeb9',
@@ -70,6 +77,7 @@ export default class BurgerListContainer extends React.Component {
                             callories: 130
                         },
                         {
+                            _id: 'id',
                             name: 'sauce',
                             type: 'topping',
                             color: '#c98973',
@@ -77,6 +85,7 @@ export default class BurgerListContainer extends React.Component {
                             callories: 2
                         },
                         {
+                            _id: 'id',
                             name: 'tomato',
                             type: 'stuff',
                             color: '#f96244',
@@ -84,6 +93,7 @@ export default class BurgerListContainer extends React.Component {
                             callories: 67
                         },
                         {
+                            _id: 'id',
                             name: 'onion',
                             type: 'stuff',
                             color: '#d9d2c5',
@@ -91,6 +101,7 @@ export default class BurgerListContainer extends React.Component {
                             callories: 45
                         },
                         {
+                            _id: 'id',
                             name: 'beef',
                             type: 'stuff',
                             color: '#431b1c',
@@ -98,6 +109,7 @@ export default class BurgerListContainer extends React.Component {
                             callories: 250
                         },
                         {
+                            _id: 'id',
                             name: 'salad',
                             type: 'stuff',
                             color: '#b2c33e',
