@@ -2,9 +2,9 @@
 
 import React from 'react';
 
-import Service from '../../../services/burgerComponentsService';
-import BurgerComponent from './BurgerComponent';
-import BurgerComponentEdit from './BurgerComponentEdit';
+import Service from '../../../../services/burgerComponentsService';
+import BurgerComponent from '../BurgerComponent';
+import BurgerComponentEdit from '../BurgerComponentEdit';
 import {assign} from 'lodash';
 
 export default class BurgerComponentContainer extends React.Component {
@@ -12,7 +12,7 @@ export default class BurgerComponentContainer extends React.Component {
         super(props);
         this.isEditable = this.props.isEditable || false;
         this.state = {
-            isEdit: false
+            isEdit: this.props.isEdit || false
         };
 
         this.edit = this.edit.bind(this);
@@ -67,7 +67,7 @@ export default class BurgerComponentContainer extends React.Component {
                                  cost={this.props.component.cost}
                                  callories={this.props.component.callories}
                                  onCancel={this.edit}
-                                 onRemove={this.deleteComponent}
+                                 onDelete={this.deleteComponent}
                                  onUpdate={this.updateComponent}/>
         );
     }

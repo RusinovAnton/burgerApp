@@ -11,7 +11,7 @@ const _assign = require('lodash').assign;
  * @param req
  * @param res
  */
-$.getComponents = function (req, res) {
+$.getComponent = function (req, res) {
     return burgerComponentSchema.find(function (err, burgerComponents) {
         if (!err) {
             return res.send(burgerComponents);

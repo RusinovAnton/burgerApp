@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-export default class BurgerComponentContainer extends React.Component {
+export default class BurgerComponent extends React.Component {
     constructor(props) {
         super(props);
     }

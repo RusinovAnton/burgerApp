@@ -2,7 +2,7 @@ import React from 'react';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
 import BurgerListContainer from '../components/BurgerApp';
-import BurgerComponentsContainer from '../components/burgerComponents/BurgerComponentsListContainer';
+import BurgerComponentsContainer from '../components/burgerComponents/list/BurgerComponentsListContainer';
 import BurgerContainer from '../components/burger/BurgerListContainer';
 
 var routes = (

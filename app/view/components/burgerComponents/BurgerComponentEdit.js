@@ -41,7 +41,7 @@ export default class BurgerComponentEdit extends React.Component {
                     <input type="number" name="cost" id="cost" value={this.state.cost} step="0.01" onChange={this.inputChange} title="cost"/>
                     <input type="number" name="callories" id="callories" step="0.01" value={this.state.callories} onChange={this.inputChange} title="callories"/>
                     <button type="submit" className="btn btn-success btn-sm" title="Save">v</button>
-                    <button type="button" className="btn btn-danger btn-sm" onClick={this.props.onRemove} title="Remove">x</button>
+                    <button type="button" className="btn btn-danger btn-sm" onClick={this.props.onDelete} title="Remove">x</button>
                     <button type="button" className="btn btn-default btn-sm" onClick={this.props.onCancel} title="Cancel">Cancel</button>
                 </form>
             </div>
