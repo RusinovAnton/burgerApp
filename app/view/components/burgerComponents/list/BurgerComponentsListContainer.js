@@ -7,16 +7,29 @@ import Service from '../../../../services/burgerComponentsService';
 export default class BurgerComponentsListContainer extends React.Component {
     constructor() {
         super();
-        this.state = {contentLoaded: false, components: []};
+        this.state = {
+            contentLoaded: false,
+            components: []
+        };
     }
 
     componentDidMount() {
-        Service.getComponents().then((components)=> {
-            this.setState({
-                contentLoaded: true,
-                components: components
+        Service
+            .getComponents()
+            .then((components)=> {
+                this.setState({
+                    contentLoaded: true,
+                    components: components
+                });
             });
-        });
+    }
+
+    componentWillReceiveProps() {
+        if (this.props.addedComponents.length) {
+            this.state.components.push(this.props.addedComponents[this.props.addedComponents.length-1]);
+            this.setState({});
+        }
+
     }
 
     render() {

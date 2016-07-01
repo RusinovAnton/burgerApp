@@ -6,7 +6,8 @@ const burgerComponentSchema = new Schema({
     name: {type: String, required: true},
     color: {type: String, required: true},
     cost: {type: Number, required: true},
-    callories: {type: Number, required: true}
+    callories: {type: Number, required: true},
+    posted: {type : Date, default : Date.now}
 });
 
 mongoose.model('burgerComponent', burgerComponentSchema);

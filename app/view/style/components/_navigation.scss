@@ -1,0 +1,20 @@
+.navigation {
+
+}
+
+.navigation__links-list {
+    @include inline-list;
+    a {
+        display: block;
+        font-size: 10px;
+        padding: 10px;
+        text-decoration: none;
+        color: #5bc0de;
+        &.is-active {
+            background-color: #ff0;
+        }
+        @include on-state {
+            color: darken(#5bc0de, 15%);
+        }
+    }
+}

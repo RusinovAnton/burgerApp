@@ -30,10 +30,8 @@ class burgerComponentsService extends Service {
             body: data
         })
             .then((res)=> {
-                if (res.status >= 200 && res.status < 400) return false;
-                else {
-                    return res.json()
-                }
+                if (res.status >= 200 && res.status < 400) return res.json();
+                else throw new Error('error');
             })
             .then((err)=> {
                 console.log(err);

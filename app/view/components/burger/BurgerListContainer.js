@@ -124,10 +124,7 @@ export default class BurgerListContainer extends React.Component {
 
     render() {
         return (
-            <div>
-                <BurgerList burgers={this.state.burgers}/>
-                <div className="btn btn-danger" onClick={this.showBurgerForm} >add burger +</div>
-            </div>
+            <BurgerList burgers={this.state.burgers}/>
         )
     }
 }

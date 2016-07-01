@@ -31,12 +31,12 @@ $.getComponents = function (req, res) {
  */
 $.postComponent = function (req, res) {
     let component = new burgerComponentSchema(JSON.parse(req.body.component));
-    component.save(function (err) {
+    component.save(function (err, component) {
         if (err) {
             console.error(err);
             res.status(400).send(err);
         }
-        res.sendStatus(200);
+        res.send(component);
     });
 };
 

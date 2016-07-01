@@ -2,9 +2,9 @@
 
 import React from 'react';
 
-import Service from '../../../../services/burgerComponentsService';
-import BurgerComponent from '../BurgerComponent';
-import BurgerComponentEdit from '../BurgerComponentEdit';
+import Service from '../../../services/burgerComponentsService';
+import BurgerComponent from './BurgerComponent';
+import BurgerComponentEdit from './BurgerComponentEdit';
 import {assign} from 'lodash';
 
 export default class BurgerComponentContainer extends React.Component {

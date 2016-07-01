@@ -1,27 +1,26 @@
-
-
 'use strict';
 
 import React from 'react';
 import BurgerComponentsListContainer from './BurgerComponentsListContainer';
-import Service from '../../../../services/burgerComponentsService';
 
 export default class BurgerComponentsListWidget extends React.Component {
     constructor() {
         super();
+        this.state = {
+            addedComponents: []
+        }
         this.createComponent = this.createComponent.bind(this);
     }
 
     createComponent() {
-        this.state.components.push(
-            {
-                callories: '',
-                color: "#FFFFFF",
-                cost: '',
-                name: '',
-                type: ''
-            }
-        );
+        this.state.addedComponents.push({
+            posted: false,
+            callories: '',
+            color: "#FFFFFF",
+            cost: '',
+            name: '',
+            type: ''
+        });
         this.setState({});
     }
 
@@ -29,7 +28,7 @@ export default class BurgerComponentsListWidget extends React.Component {
         return (
             <div>
                 <h2>Burger Components</h2>
-                <BurgerComponentsListContainer/>
+                <BurgerComponentsListContainer addedComponents={this.state.addedComponents}/>
                 <button type="button"
                         onClick={this.createComponent}
                         className="btn btn-info">

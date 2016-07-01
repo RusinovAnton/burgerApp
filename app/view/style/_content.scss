@@ -17,8 +17,8 @@ body {
     background: rgba(181, 157, 98, 0.42);
 }
 
-::-moz-selection { background: yellow; }
-::selection { background: yellow; }
+::-moz-selection { background: #00008b; }
+::selection { background: #00008b; }
 
 .isLoading {
     display: none;
