@@ -5,7 +5,7 @@ class burgerComponentsService extends Service {
         super();
     }
 
-    getComponent(id) {
+    getComponents(id) {
 
         let url = id ? '/api/component/' + id : '/api/component';
 

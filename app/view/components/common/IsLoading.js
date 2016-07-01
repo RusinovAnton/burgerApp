@@ -5,6 +5,6 @@ export default class isLoading extends React.Component {
         super()
     }
     render() {
-        return ()
+        return (<span class="is-loading">Loading...</span>);
     }
 }

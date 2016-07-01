@@ -1,9 +1,7 @@
 'use strict';
 
 import React from 'react';
-
 import BurgerList from './burger/BurgerListContainer';
-
 import BurgerComponentsList from './burgerComponents/list/BurgerComponentsListContainer';
 
 export default class BurgerApp extends React.Component {

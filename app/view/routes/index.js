@@ -1,16 +1,15 @@
 import React from 'react';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
-import BurgerListContainer from '../components/BurgerApp';
-import BurgerComponentsContainer from '../components/burgerComponents/list/BurgerComponentsListContainer';
-import BurgerContainer from '../components/burger/BurgerListContainer';
+import BurgerApp from '../components/BurgerApp';
+import BurgerComponentsListWidget from '../components/burgerComponents/list/BurgerComponentsListWidget';
+import BurgerListContainer from '../components/burger/BurgerListContainer';
 
 var routes = (
     <Router history={hashHistory}>
-        <Route path="/" component={ BurgerListContainer }/>
-        <Route path="/list" component={ BurgerListContainer }/>
-        <Route path="/component/:id" component={ BurgerComponentsContainer }/>
-        <Route path="/burger/:id" component={ BurgerContainer }/>
+        <Route path="/" component={ BurgerApp }/>
+        <Route path="/components_list" component={ BurgerComponentsListWidget }/>
+        <Route path="/burgers_list" component={ BurgerListContainer }/>
     </Router>
 );
 
