@@ -1,5 +1,6 @@
 import React from 'react';
 import BurgerComponentContainer from './BurgerComponentContainer';
+import IsLoading from '../../common/IsLoading';
 
 export default class BurgerComponentsList extends React.Component {
     render() {
@@ -16,7 +17,7 @@ export default class BurgerComponentsList extends React.Component {
         } else {
             return (
                 <div className="burger__components-list">
-                    <span class="is-loading">Loading...</span>
+                    <IsLoading/>
                 </div>
             );
         }
