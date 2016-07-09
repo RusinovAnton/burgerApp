@@ -12,7 +12,7 @@ export default class BurgerComponentPreContainer extends React.Component {
         super(props);
         this.isEditable = this.props.isEditable || false;
         this.state = {
-            isEdit: this.props.isEdit || false
+            isEdit: this.props.isEdit || true
         };
 
         this.edit = this.edit.bind(this);
@@ -20,13 +20,13 @@ export default class BurgerComponentPreContainer extends React.Component {
         this.deleteComponent = this.deleteComponent.bind(this);
     }
 
+    edit() {
+        if (this.isEditable) this.setState({isEdit: !this.state.isEdit})
+    }
+
     deleteComponent() {
         //TODO: delete item from components array
         console.log('component was deleted');
-    }
-
-    edit() {
-        if (this.isEditable) this.setState({isEdit: !this.state.isEdit})
     }
 
     addComponent(component) {
